@@ -1,16 +1,21 @@
 "use client";
 
 import Image from "next/image";
-import imageBG from "@/assets/7005295.jpg";
+import imageBG from "@/assets/photo.jpeg";
 import { FlipWords } from "@/components/ui/flip-words";
 import { Header } from "@/components/local/Header";
 import { FaLinkSlash } from "react-icons/fa6";
-
+import { motion } from "motion/react";
+import { CarouselComponent } from "@/components/local/carosel";
 
 export default function Home() {
   const words = ["maintenance", "installation", "refrigeration"];
   return (
-    <main className={"px-[5%] overflow-hidden"}>
+    <motion.main
+      initial={{ opacity: 0, y: "100%" }}
+      animate={{ opacity: 1, y: 0, transition: { duration: 0.8 } }}
+      className={"px-[5%] overflow-hidden"}
+    >
       <Header />
       <section className={" space-y-5 mt-12 w-3/4 max-sm:w-full"}>
         <span
@@ -63,7 +68,11 @@ export default function Home() {
             " h-[60vh] mt-12 overflow-hidden rounded-3xl max-sm:h-[30vh]"
           }
         >
-          <Image src={imageBG} alt={""} className={"w-full object-cover"} />{" "}
+          <Image
+            src={imageBG}
+            alt={""}
+            className={"w-full object-cover object-center shadow-md"}
+          />{" "}
           <button
             className={
               "w-[60px] h-[50px] absolute bg-sky-700 bottom-[-30px] right-[-10px] rounded-full font-bold text-white grid place-content-center outline-4 outline-white outline"
@@ -77,16 +86,25 @@ export default function Home() {
         <span
           id="testimonials"
           className={
-            "text-2xl font-bold text-sky-700 border border-sky-100 shadow-md bg-sky-200 px-3 py-1 rounded-xl"
+            "text-2xl font-bold text-sky-700 border border-sky-100 shadow-md bg-sky-200 px-3 py-1 rounded-xl max-sm:text-sm max-sm:text-center max-sm:block"
           }
         >
           Testimonials and evaluations
         </span>
+        <CarouselComponent />
         <section className={"grid grid-cols-3"}>
           <div className={"w-2/3 col-span-2"}></div>
           <div className={"w-1/3"}></div>
         </section>
       </section>
-    </main>
+      <span
+        id="services"
+        className={
+          "text-2xl font-bold text-sky-700 border border-sky-100 shadow-md bg-sky-200 px-3 py-1 rounded-xl max-sm:text-sm max-sm:text-center max-sm:block"
+        }
+      >
+        Services
+      </span>
+    </motion.main>
   );
 }
