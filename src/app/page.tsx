@@ -7,8 +7,16 @@ import { Header } from "@/components/local/Header";
 import { FaLinkSlash } from "react-icons/fa6";
 import { motion } from "motion/react";
 import { CarouselComponent } from "@/components/local/carosel";
+import { Footer } from "@/components/local/footer";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export default function Home() {
+  const router = useRouter();
+  const redirect = () => {
+    router.push("/linktree");
+  };
+
   const words = ["maintenance", "installation", "refrigeration"];
   return (
     <motion.main
@@ -17,7 +25,7 @@ export default function Home() {
       className={"px-[5%] overflow-hidden"}
     >
       <Header />
-      <section className={" space-y-5 mt-12 w-3/4 max-sm:w-full"}>
+      <section className={" space-y-4 mt-6 w-3/4 max-sm:w-full"}>
         <span
           className={
             "text-xs bg-sky-200 px-3 py-1 rounded-xl border border-sky-300 text-sky-800 max-sm:block max-sm:text-center"
@@ -46,20 +54,24 @@ export default function Home() {
           Market, We Are the Right Choice for Your Well-Being!
         </p>
         <section className={"flex gap-2 max-sm:justify-center"}>
-          <button
-            className={
-              "bg-sky-700 px-3 py-1 w-[180px] rounded-xl hover:scale-105 transition-transform shadow-md text-white"
-            }
-          >
-            Services
-          </button>
-          <button
-            className={
-              "border border-zinc-900 px-3 py-1 w-[180px] rounded-xl text-zinc-900 shadow-md hover:border-sky-700 hover:text-white hover:bg-sky-700 transition-colors"
-            }
-          >
-            Contact Now
-          </button>
+          <Link href={"#services"}>
+            <button
+              className={
+                "bg-sky-700 px-3 py-1 w-[180px] rounded-xl hover:scale-105 transition-transform shadow-md text-white"
+              }
+            >
+              Services
+            </button>
+          </Link>
+          <Link href="/linktree">
+            <button
+              className={
+                "border border-zinc-900 px-3 py-1 w-[180px] rounded-xl text-zinc-900 shadow-md hover:border-sky-700 hover:text-white hover:bg-sky-700 transition-colors"
+              }
+            >
+              Contact Now
+            </button>
+          </Link>
         </section>
       </section>
       <section className={"relative my-8"}>
@@ -82,29 +94,19 @@ export default function Home() {
           </button>
         </section>
       </section>
-      <section className="my-8 relative w-full">
-        <span
+      <section>
+        <p
           id="testimonials"
           className={
-            "text-2xl font-bold text-sky-700 border border-sky-100 shadow-md bg-sky-200 px-3 py-1 rounded-xl max-sm:text-sm max-sm:text-center max-sm:block"
+            "text-2xl font-bold text-center text-sky-700 border border-sky-100 shadow-md bg-sky-200 px-3 py-1 rounded-xl max-sm:text-sm max-sm:text-center"
           }
         >
           Testimonials and evaluations
-        </span>
+        </p>
+
         <CarouselComponent />
-        <section className={"grid grid-cols-3"}>
-          <div className={"w-2/3 col-span-2"}></div>
-          <div className={"w-1/3"}></div>
-        </section>
       </section>
-      <span
-        id="services"
-        className={
-          "text-2xl font-bold text-sky-700 border border-sky-100 shadow-md bg-sky-200 px-3 py-1 rounded-xl max-sm:text-sm max-sm:text-center max-sm:block"
-        }
-      >
-        Services
-      </span>
+      <Footer />
     </motion.main>
   );
 }
