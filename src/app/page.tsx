@@ -1,22 +1,17 @@
 "use client";
 
 import Image from "next/image";
-import imageBG from "@/assets/photo.jpeg";
+import imageBG from "@/assets/7005295.jpg";
 import { FlipWords } from "@/components/ui/flip-words";
 import { Header } from "@/components/local/Header";
 import { FaLinkSlash } from "react-icons/fa6";
 import { motion } from "motion/react";
 import { CarouselComponent } from "@/components/local/carosel";
 import { Footer } from "@/components/local/footer";
-import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { LayoutGridDemo } from "@/components/local/layout-grid-demo";
 
 export default function Home() {
-  const router = useRouter();
-  const redirect = () => {
-    router.push("/linktree");
-  };
-
   const words = ["maintenance", "installation", "refrigeration"];
   return (
     <motion.main
@@ -94,16 +89,26 @@ export default function Home() {
           </button>
         </section>
       </section>
-      <section>
-        <p
+      <section className={"text-center"}>
+        <span
           id="testimonials"
           className={
-            "text-2xl font-bold text-center text-sky-700 border border-sky-100 shadow-md bg-sky-200 px-3 py-1 rounded-xl max-sm:text-sm max-sm:text-center"
+            "text-sm text-center bg-sky-200 px-3 py-1 rounded-xl border border-sky-300 text-sky-800  max-sm:text-center"
+          }
+        >
+          Services
+        </span>
+        <LayoutGridDemo />
+      </section>
+      <section className={"text-center"}>
+        <span
+          id="testimonials"
+          className={
+            "text-sm text-center bg-sky-200 px-3 py-1 rounded-xl border border-sky-300 text-sky-800  max-sm:text-center"
           }
         >
           Testimonials and evaluations
-        </p>
-
+        </span>
         <CarouselComponent />
       </section>
       <Footer />
