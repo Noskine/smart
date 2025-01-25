@@ -3,7 +3,7 @@
 import Image from "next/image";
 import imageBG from "@/assets/7005295.jpg";
 import { FlipWords } from "@/components/ui/flip-words";
-import { Header } from "@/components/local/Header";
+import { Header } from "@/components/local/header";
 import { FaLinkSlash } from "react-icons/fa6";
 import { motion } from "motion/react";
 import { CarouselComponent } from "@/components/local/carosel";
@@ -89,22 +89,26 @@ export default function Home() {
           </button>
         </section>
       </section>
-      <section className={"text-center"}>
+      <section className={"md:text-center"}>
         <span
-          id="testimonials"
+          id="services"
           className={
-            "text-sm text-center bg-sky-200 px-3 py-1 rounded-xl border border-sky-300 text-sky-800  max-sm:text-center"
+            "text-sm bg-sky-200 w-1/3 text-center block md:inline px-3 py-1 rounded-2xl border border-sky-300 text-sky-800  max-sm:text-center"
           }
         >
           Services
         </span>
+        <p className={"mt-5 text-xs text-sky-700"}>
+          Operantes cum residentialibus et commercialibus HVAC servitiis cum
+          excellentia et industria clientium!
+        </p>
         <LayoutGridDemo />
       </section>
       <section className={"text-center"}>
         <span
           id="testimonials"
           className={
-            "text-sm text-center bg-sky-200 px-3 py-1 rounded-xl border border-sky-300 text-sky-800  max-sm:text-center"
+            "text-sm bg-sky-200 px-3 py-1 rounded-xl border border-sky-300 text-sky-800 max-sm:text-center"
           }
         >
           Testimonials and evaluations

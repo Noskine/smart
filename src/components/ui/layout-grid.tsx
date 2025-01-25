@@ -11,7 +11,13 @@ type Card = {
   thumbnail: string;
 };
 
-export const LayoutGrid = ({ cards }: { cards: Card[] }) => {
+export const LayoutGrid = ({
+  cards,
+  className,
+}: {
+  cards: Card[];
+  className?: string;
+}) => {
   const [selected, setSelected] = useState<Card | null>(null);
   const [lastSelected, setLastSelected] = useState<Card | null>(null);
 
@@ -43,7 +49,7 @@ export const LayoutGrid = ({ cards }: { cards: Card[] }) => {
             layoutId={`card-${card.id}`}
           >
             {selected?.id === card.id && <SelectedCard selected={selected} />}
-            <ImageComponent card={card} />
+            <ImageComponent card={card} className={className} />
           </motion.div>
         </div>
       ))}
@@ -59,7 +65,13 @@ export const LayoutGrid = ({ cards }: { cards: Card[] }) => {
   );
 };
 
-const ImageComponent = ({ card }: { card: Card }) => {
+const ImageComponent = ({
+  card,
+  className,
+}: {
+  card: Card;
+  className?: string;
+}) => {
   return (
     <motion.img
       layoutId={`image-${card.id}-image`}
@@ -67,7 +79,8 @@ const ImageComponent = ({ card }: { card: Card }) => {
       height="500"
       width="500"
       className={cn(
-        "object-cover object-top absolute shadow-2xl inset-0 h-full w-full transition duration-200",
+        "object-cover object-center absolute shadow-2xl inset-0 h-full w-full transition duration-200",
+        className,
       )}
       alt="thumbnail"
     />
