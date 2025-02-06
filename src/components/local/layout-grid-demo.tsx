@@ -1,9 +1,9 @@
-"use client";
-import { LayoutGrid } from "../ui/layout-grid";
-import one from "@/assets/images/img (1).jpeg";
-import two from "@/assets/images/img (2).jpeg";
-import three from "@/assets/images/img (3).jpeg";
-import fuor from "@/assets/images/img (5).jpeg";
+'use client';
+import { LayoutGrid } from '../ui/layout-grid';
+import one from '@/assets/images/img (1).jpeg';
+import two from '@/assets/images/img (2).jpeg';
+import three from '@/assets/images/img (3).jpeg';
+import fuor from '@/assets/images/img (5).jpeg';
 
 export function LayoutGridDemo() {
   return (
@@ -57,10 +57,10 @@ const SkeletonThree = () => {
       </p>
       <hr className="border-zinc-400" />
       <p className="font-normal text-white text-justify">
-        The{" "}
+        The{' '}
         <strong className="font-bold">
           installation of a mini split system
-        </strong>{" "}
+        </strong>{' '}
         is the implementation of a compact air conditioning system, ideal for
         environments that require flexibility and energy efficiency. Your
         company offers the installation of this type of system, which is silent,
@@ -93,25 +93,25 @@ const cards = [
   {
     id: 1,
     content: <SkeletonOne />,
-    className: "md:col-span-2",
+    className: 'md:col-span-2',
     thumbnail: one.src,
   },
   {
     id: 2,
     content: <SkeletonTwo />,
-    className: "col-span-1",
+    className: 'col-span-1',
     thumbnail: two.src,
   },
   {
     id: 3,
     content: <SkeletonThree />,
-    className: "col-span-1",
+    className: 'col-span-1',
     thumbnail: three.src,
   },
   {
     id: 4,
     content: <SkeletonFour />,
-    className: "md:col-span-2",
+    className: 'md:col-span-2',
     thumbnail: fuor.src,
   },
 ];
